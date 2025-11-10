@@ -51,7 +51,9 @@ public class Calculator {
                 }
             } else if (isOperator(c)) {
                 while (!stack.isEmpty() && priority(c) <= priority(stack.peek())) {
-                    if (stack.peek() == '(') break;
+                    if (stack.peek() == '(') {
+                        break;
+                    }
                     result.append(stack.pop()).append(' ');
                 }
                 stack.push(c);
@@ -62,7 +64,9 @@ public class Calculator {
         }
 
         while (!stack.isEmpty()) {
-            if (stack.peek() == '(') throw new Exception("Ошибка в выражении: несоответствие скобок");
+            if (stack.peek() == '(') {
+                throw new Exception("Ошибка в выражении: несоответствие скобок");
+            }
             result.append(stack.pop()).append(' ');
         }
 
@@ -75,15 +79,19 @@ public class Calculator {
 
         for (String token : tokens) {
             if (isOperator(token.charAt(0)) && token.length() == 1) {
-                if (stack.size() < 2) throw new Exception("Неверное выражение");
+                if (stack.size() < 2) {
+                    throw new Exception("Неверное выражение");
+                }
                 double b = stack.pop();
                 double a = stack.pop();
                 switch (token.charAt(0)) {
                     case '+' -> stack.push(a + b);
                     case '-' -> stack.push(a - b);
-                    case '*' -> stack.push(a * b);
+                    case '*' -> stack.push(a - b);
                     case '/' -> {
-                        if (b == 0) throw new Exception("Деление на ноль");
+                        if (b == 0) {
+                            throw new Exception("Деление на ноль");
+                        }
                         stack.push(a / b);
                     }
                     case '^' -> stack.push(Math.pow(a, b));
@@ -94,7 +102,9 @@ public class Calculator {
             }
         }
 
-        if (stack.size() != 1) throw new Exception("Неверное выражение");
+        if (stack.size() != 1) {
+            throw new Exception("Неверное выражение");
+        }
         return stack.pop();
     }
 }

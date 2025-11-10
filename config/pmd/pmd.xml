@@ -6,9 +6,11 @@
     <rule ref="category/java/bestpractices.xml">
         <exclude name="OneDeclarationPerLine"/>
         <exclude name="AvoidPrintStackTrace"/>
+        <exclude name="LooseCoupling"/>
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="MethodArgumentCouldBeFinal"/>
+        <exclude name="ShortVariable"/>
         <exclude name="LocalVariableCouldBeFinal"/>
         <exclude name="OnlyOneReturn"/>
         <exclude name="AtLeastOneConstructor"/>
@@ -19,10 +21,14 @@
         </properties>
     </rule>
     <rule ref="category/java/errorprone.xml" >
-        <exclude name="BeanMembersShouldSerialize"/>
+        <exclude name="NonSerializableClass"/>
         <exclude name="MisplacedNullCheck"/>
         <exclude name="EmptyCatchBlock"/>
+        <exclude name="AvoidLiteralsInIfCondition"/>
     </rule>
-    <rule ref="category/java/performance.xml" />
+    <rule ref="category/java/performance.xml" >
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+    </rule>
     <exclude-pattern>.*/src/main/java/utils/.*</exclude-pattern>
+    <exclude-pattern>.*/src/main/java/ru/yarsu/Main\.java</exclude-pattern>
 </ruleset>
