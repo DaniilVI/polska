@@ -41,7 +41,7 @@ jobs:
       run: ./gradlew pmdMain
 
     - name: Publish PMD report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: pmd-report
         path: build/reports/pmd/
