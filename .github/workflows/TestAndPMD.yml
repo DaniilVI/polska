@@ -35,7 +35,7 @@ jobs:
       run: chmod +x gradlew
       
     - name: Build without PMDMain
-      run: ./gradlew build -x pmdMain
+      run: ./gradlew build -x pmdMain pmdTest
 
     - name: Run PMD check
       run: ./gradlew pmdMain || true
