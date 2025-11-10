@@ -87,7 +87,7 @@ public class Calculator {
                 switch (token.charAt(0)) {
                     case '+' -> stack.push(a + b);
                     case '-' -> stack.push(a - b);
-                    case '*' -> stack.push(a - b);
+                    case '*' -> stack.push(a * b);
                     case '/' -> {
                         if (b == 0) {
                             throw new Exception("Деление на ноль");
