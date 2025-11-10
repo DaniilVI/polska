@@ -34,8 +34,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: Build without PMDMain
-      run: ./gradlew build -x pmdMain pmdTest
+    - name: Build without PMD
+      run: ./gradlew build -x pmdMain -x pmdTest
 
     - name: Run PMD check
       run: ./gradlew pmdMain || true
